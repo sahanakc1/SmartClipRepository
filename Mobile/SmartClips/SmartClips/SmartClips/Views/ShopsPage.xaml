@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="SmartClips.Views.ShopsPage"
+             BackgroundColor="{StaticResource BackgroundColor}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+            <Color x:Key="BackgroundColor">#333EBD</Color>
+            <Color x:Key="CellBackgroundColor">#2E249E</Color>
+            <Color x:Key="SwipeItemTextColor">#FFECCB</Color>
+            <Color x:Key="SwipeItemBackgroundColor">#FE744D</Color>
+            <Color x:Key="AddressColor">#cae1fc</Color>
+            <Color x:Key="TitleColor">#FFFFFF</Color>
+
+            <Style x:Key="TitleStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="24" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="Margin" Value="0, 60, 0, 0" />
+            </Style>
+
+            <Style x:Key="FrameStyle" TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="{StaticResource CellBackgroundColor}" />
+                <Setter Property="CornerRadius" Value="12" />
+                <Setter Property="Padding" Value="12" />
+                <Setter Property="Margin" Value="0, 12, 0, 0" />
+            </Style>
+
+            <Style x:Key="SaloonNameStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="22" />
+                <Setter Property="TextColor" Value="{StaticResource TitleColor}" />
+                <Setter Property="Margin" Value="6, 18, 0, 0" />
+            </Style>
+
+            <Style x:Key="AddressStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource AddressColor}" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="Margin" Value="6, 0, 6, 6" />
+            </Style>
+
+            <Style x:Key="CategoryStyle" TargetType="Image">
+                <Setter Property="Opacity" Value="0.75" />
+                <Setter Property="Aspect" Value="AspectFit" />
+                <Setter Property="Margin" Value="0, 0, 100, 0" />
+            </Style>
+
+            <Style x:Key="SwipeItemBorderStyle" TargetType="BoxView">
+                <Setter Property="BackgroundColor" Value="{StaticResource SwipeItemBackgroundColor}" />
+                <Setter Property="CornerRadius" Value="0, 12, 0, 12" />
+                <Setter Property="Margin" Value="0, 12, 0, 0" />
+            </Style>
+
+            <Style x:Key="SwipeItemIconStyle" TargetType="Image">
+                <Setter Property="Aspect" Value="AspectFit" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="Margin" Value="30" />
+            </Style>
+
+            <Style x:Key="SwipeItemTextStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource SwipeItemTextColor}" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="Margin" Value="0, 36, 0, 0" />
+            </Style>
+
+            <DataTemplate x:Key="MessageTemplate">
+                <Grid BackgroundColor="{StaticResource BackgroundColor}">
+                <SwipeView BackgroundColor="{StaticResource BackgroundColor}"
+                    HeightRequest="140" VerticalOptions="FillAndExpand">
+                    <SwipeView.RightItems>
+                        <SwipeItems
+                            Mode="Reveal">
+                            <SwipeItemView>
+                                <Grid
+                                    WidthRequest="120"
+                                    BackgroundColor="{StaticResource BackgroundColor}">
+                                    <BoxView
+                                        Style="{StaticResource SwipeItemBorderStyle}"/>
+                                    <Image
+                                        Source="star.png"
+                                        Style="{StaticResource SwipeItemIconStyle}"/>
+                                    <Label                                         
+                                        Text="Favourite"
+                                        Style="{StaticResource SwipeItemTextStyle}"/>
+                                </Grid>
+                            </SwipeItemView>
+                        </SwipeItems>
+                    </SwipeView.RightItems>
+                    <SwipeView.Content>
+                            <Grid>
+                                <Frame
+                                Style="{StaticResource FrameStyle}">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding LoadSaloonDetailCommad}"/>
+                                    </Frame.GestureRecognizers>
+                                    <Grid 
+                                    VerticalOptions="Center"
+                                    RowSpacing="0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="180" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <Image
+                                        Grid.Column="0"
+                                        Grid.Row="0"
+                                        Grid.RowSpan="2"
+                                        Source="{Binding name}"
+                                        Style="{StaticResource CategoryStyle}"/>
+                                        <Label
+                                        Grid.Column="0"
+                                        Grid.Row="0"
+                                        Text="{Binding saloon_name}"
+                                        Style="{StaticResource SaloonNameStyle}"/>
+                                        <Label
+                                        Grid.Column="0"
+                                        Grid.Row="1"
+                                        Text="{Binding Address}"
+                                        Style="{StaticResource AddressStyle}"/>
+                                    </Grid>
+                                </Frame>
+                                <ScrollView
+                                IsEnabled="False"
+                                HorizontalOptions="End">
+                                <Image
+                                    HeightRequest="150"
+                                    Aspect="AspectFit"
+                                    Source="house.png"/>
+                            </ScrollView>
+                        </Grid>
+                    </SwipeView.Content>
+                </SwipeView>
+                </Grid>
+            </DataTemplate>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Label
+                Grid.Row="0"
+                Text="Saloons"
+                Style="{StaticResource TitleStyle}"/>
+            <CollectionView
+                Grid.Row="1"
+                ItemsSource="{Binding Saloons}"
+                ItemTemplate="{StaticResource MessageTemplate}"
+                Margin="12, 12, 12, 0">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout
+                        Orientation="Vertical"
+                        ItemSpacing="12"/>
+                </CollectionView.ItemsLayout>
+            </CollectionView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

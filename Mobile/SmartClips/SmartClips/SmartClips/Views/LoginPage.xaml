@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:converter="clr-namespace:UIKit.Converters"
+             xmlns:viewModel="clr-namespace:SmartClips.ViewModels"
+             xmlns:skiaSharp="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+             mc:Ignorable="d"
+             x:Class="SmartClips.Views.LoginPage" 
+             BackgroundColor="#ebecef">
+    <ContentPage.Resources>
+        <viewModel:LoginViewModel x:Key="vm"></viewModel:LoginViewModel>
+        <ResourceDictionary>
+            <Color x:Key="BackgroundColor">#dcf3fa</Color>
+            <Color x:Key="BtnBackgroundColor">#2E249E</Color>
+            <Color x:Key="BoxbackgroundColor">#047474</Color>
+            <Style x:Key="FormLabelStyle" 
+                   TargetType="Label">
+                <Setter Property="FontSize"
+                        Value="18" />
+                <Setter Property="TextColor"
+                        Value="{StaticResource BackgroundColor}" />
+            </Style>
+
+            <Style x:Key="FormEntryStyle"         
+                   TargetType="Label">
+                <Setter Property="TextColor"
+                        Value="Black" />
+                <Setter Property="BackgroundColor"
+                        Value="{StaticResource BackgroundColor}" />
+            </Style>
+
+            <Style x:Key="FormSubmitBtnStyle" 
+                   TargetType="Button">
+                <Setter Property="WidthRequest"
+                        Value="200" />
+                <Setter Property="BackgroundColor"
+                        Value="{StaticResource BtnBackgroundColor}" />
+                <Setter Property="TextColor"
+                        Value="{StaticResource BackgroundColor}" />
+                <Setter Property="FontSize"
+                        Value="20" />
+                <Setter Property="CornerRadius" Value="10" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.BindingContext>
+        <viewModel:LoginViewModel />
+    </ContentPage.BindingContext>
+    <ScrollView Orientation="Vertical"
+                BackgroundColor="#393939">
+        <Frame HasShadow="True"
+               BackgroundColor="#333EBD"
+               CornerRadius="10"
+               Padding="0"
+               HorizontalOptions="Center"
+               VerticalOptions="Center">
+            <StackLayout>
+                <Label Text="SmartClips"
+                       TextColor="{StaticResource BackgroundColor}"
+                       FontSize="28"
+                       FontAttributes="Bold"
+                       Margin="25, 20, 0, 5"/>
+                <BoxView HeightRequest="1"
+                         BackgroundColor="{StaticResource BoxbackgroundColor}"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <skiaSharp:SKCanvasView x:Name="_skCanvasView"
+                                            PaintSurface="SkCanvasViewPaintSurfaceRequested"
+                                            SizeChanged="SkCanvasViewSizeChanged"/>
+                    <StackLayout x:Name="_formLayout"
+                                 Padding="60, 25, 60, 20"
+                                 Orientation="Vertical"
+                                 Spacing="2">
+                        <Label Text="Username"
+                               Style="{StaticResource FormLabelStyle}" />
+                        <Entry Style="{StaticResource FormEntryStyle}"
+                               Focused="EntryFocused"/>
+
+                        <Label Text="Password"
+                               Margin="0, 15, 0, 0"
+                               Style="{StaticResource FormLabelStyle}"/>
+                        <Entry IsPassword="True"
+                               Style="{StaticResource FormEntryStyle}"
+                               Focused="EntryFocused"/>
+                        <Button Text="Login"
+                                Margin="0, 40, 0, 0"
+                                Style="{StaticResource FormSubmitBtnStyle}"
+                                Command="{Binding LoginCommand}"/>
+                        <Label 
+                               Margin="-10, 15, 0, -15"
+                               Style="{StaticResource FormLabelStyle}" >
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Don't have an account ?    "/>
+                                    <Span Text="SignUp!" TextDecorations="Underline">
+                                        <Span.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding SignUpCommand}"/>
+                                        </Span.GestureRecognizers>
+                                    </Span>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+        </Frame>
+    </ScrollView>
+    <!--<ContentPage.Resources>
+        <ResourceDictionary>
+            <viewModel:LoginViewModel x:Key="vm"></viewModel:LoginViewModel>
+            <converter:BooleanToColorConverter x:Key="ColorConverter" />
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+
+    </ContentPage.Resources>
+    
+    <ContentPage.BindingContext>
+        <viewModel:LoginViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0,10,0,0" Grid.Row="0">
+
+            </StackLayout>
+            <Grid Grid.Row="1" Margin="20,0,20,0">
+
+                <Grid.RowDefinitions>
+
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="*"/>
+
+                </Grid.RowDefinitions>
+                <Entry Grid.Row="1" Placeholder="Email or Phone Number" PlaceholderColor="Black" FontSize="16"/>
+                <Entry Grid.Row="2" Placeholder="Password" PlaceholderColor="Black" FontSize="16"/>
+               <Button Text="LogIn" Command="{Binding LoginCommand}" BackgroundColor="BlueViolet"  TextColor="Black"  HeightRequest="50" VerticalOptions="Start" Grid.Row="3"/>
+
+            </Grid>
+
+            <StackLayout Grid.Row="2" BackgroundColor="#ffffff">
+                <Label HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Dont'Have Account?" TextColor="Black" FontSize="16"/>
+                            <Span Text="SignUp!" TextColor="Blue" TextDecorations="Underline">
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding SignUpCommand}"/>
+                                </Span.GestureRecognizers>
+                            </Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </StackLayout>
+        </Grid>
+
+    </ContentPage.Content>-->
+</ContentPage>

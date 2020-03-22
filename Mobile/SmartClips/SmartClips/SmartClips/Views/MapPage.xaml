@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:map="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             xmlns:local="clr-namespace:SmartClips.Maps"
+             mc:Ignorable="d"
+             x:Class="SmartClips.Views.MapPage">
+    <!--<Grid>
+        <map:Map x:Name="MyMap" MapType="Street" HasZoomEnabled="True">
+            <map:Map.ItemTemplate>
+                <DataTemplate>
+                    <map:Pin Position="{Binding Position}"
+                              Address="{Binding Address}"
+                              Label="{Binding PlaceName}" />
+                </DataTemplate>
+            </map:Map.ItemTemplate>
+        </map:Map>
+    </Grid>-->
+    <Grid>
+        <local:CustomMap x:Name="MyMap" MapType="Street" HasZoomEnabled="True">
+            <local:CustomMap.ItemTemplate>
+                <DataTemplate>
+                    <map:Pin Position="{Binding Position}"
+                              Address="{Binding Address}"
+                              Label="{Binding PlaceName}" />
+                </DataTemplate>
+            </local:CustomMap.ItemTemplate>
+        </local:CustomMap>
+    </Grid>
+</ContentPage>
