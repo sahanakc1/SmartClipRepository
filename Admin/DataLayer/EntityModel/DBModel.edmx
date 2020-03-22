@@ -1,0 +1,410 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="saloondbModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblcheckins">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="checkin_time" Type="datetime" Precision="0" />
+          <Property Name="created_at" Type="datetime" Precision="0" />
+          <Property Name="updated_at" Type="datetime" Precision="0" />
+          <Property Name="saloon_id" Type="int" Nullable="false" />
+          <Property Name="user_id" Type="int" Nullable="false" />
+          <Property Name="role_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblroles">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="role" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="created_at" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="updated_at" Type="timestamp" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblsaloonusers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="phone" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="zipcode" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="saloon_name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="created_at" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="updated_at" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="role_id" Type="int" Nullable="false" />
+          <Property Name="businesshrs_from" Type="time" Precision="0" />
+          <Property Name="businesshrs_to" Type="time" Precision="0" />
+        </EntityType>
+        <EntityType Name="tblusers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="phone" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="zipcode" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="created_at" Type="datetime" Precision="0" />
+          <Property Name="updated_at" Type="datetime" Precision="0" />
+          <Property Name="role_id" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="tblcheckins_ibfk_1">
+          <End Role="tblsaloonusers" Type="Self.tblsaloonusers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblcheckins" Type="Self.tblcheckins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblsaloonusers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblcheckins">
+              <PropertyRef Name="saloon_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tblcheckins_ibfk_2">
+          <End Role="tblusers" Type="Self.tblusers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblcheckins" Type="Self.tblcheckins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblusers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblcheckins">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tblcheckins_ibfk_3">
+          <End Role="tblroles" Type="Self.tblroles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblcheckins" Type="Self.tblcheckins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblroles">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblcheckins">
+              <PropertyRef Name="role_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tblsaloonusers_ibfk_1">
+          <End Role="tblroles" Type="Self.tblroles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblsaloonusers" Type="Self.tblsaloonusers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblroles">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblsaloonusers">
+              <PropertyRef Name="role_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tblusers_ibfk_1">
+          <End Role="tblroles" Type="Self.tblroles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblusers" Type="Self.tblusers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblroles">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblusers">
+              <PropertyRef Name="role_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="saloondbModelStoreContainer">
+          <EntitySet Name="tblcheckins" EntityType="Self.tblcheckins" Schema="saloondb" store:Type="Tables" />
+          <EntitySet Name="tblroles" EntityType="Self.tblroles" Schema="saloondb" store:Type="Tables" />
+          <EntitySet Name="tblsaloonusers" EntityType="Self.tblsaloonusers" Schema="saloondb" store:Type="Tables" />
+          <EntitySet Name="tblusers" EntityType="Self.tblusers" Schema="saloondb" store:Type="Tables" />
+          <AssociationSet Name="tblcheckins_ibfk_1" Association="Self.tblcheckins_ibfk_1">
+            <End Role="tblsaloonusers" EntitySet="tblsaloonusers" />
+            <End Role="tblcheckins" EntitySet="tblcheckins" />
+          </AssociationSet>
+          <AssociationSet Name="tblcheckins_ibfk_2" Association="Self.tblcheckins_ibfk_2">
+            <End Role="tblusers" EntitySet="tblusers" />
+            <End Role="tblcheckins" EntitySet="tblcheckins" />
+          </AssociationSet>
+          <AssociationSet Name="tblcheckins_ibfk_3" Association="Self.tblcheckins_ibfk_3">
+            <End Role="tblroles" EntitySet="tblroles" />
+            <End Role="tblcheckins" EntitySet="tblcheckins" />
+          </AssociationSet>
+          <AssociationSet Name="tblsaloonusers_ibfk_1" Association="Self.tblsaloonusers_ibfk_1">
+            <End Role="tblroles" EntitySet="tblroles" />
+            <End Role="tblsaloonusers" EntitySet="tblsaloonusers" />
+          </AssociationSet>
+          <AssociationSet Name="tblusers_ibfk_1" Association="Self.tblusers_ibfk_1">
+            <End Role="tblroles" EntitySet="tblroles" />
+            <End Role="tblusers" EntitySet="tblusers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="saloondbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblcheckin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="checkin_time" Type="DateTime" />
+          <Property Name="created_at" Type="DateTime" />
+          <Property Name="updated_at" Type="DateTime" />
+          <Property Name="saloon_id" Type="Int32" Nullable="false" />
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <Property Name="role_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tblsaloonuser" Relationship="Self.tblcheckins_ibfk_1" FromRole="tblcheckins" ToRole="tblsaloonusers" />
+          <NavigationProperty Name="tbluser" Relationship="Self.tblcheckins_ibfk_2" FromRole="tblcheckins" ToRole="tblusers" />
+          <NavigationProperty Name="tblrole" Relationship="Self.tblcheckins_ibfk_3" FromRole="tblcheckins" ToRole="tblroles" />
+        </EntityType>
+        <EntityType Name="tblrole">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="role" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="created_at" Type="DateTime" Nullable="false" />
+          <Property Name="updated_at" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="tblcheckins" Relationship="Self.tblcheckins_ibfk_3" FromRole="tblroles" ToRole="tblcheckins" />
+          <NavigationProperty Name="tblsaloonusers" Relationship="Self.tblsaloonusers_ibfk_1" FromRole="tblroles" ToRole="tblsaloonusers" />
+          <NavigationProperty Name="tblusers" Relationship="Self.tblusers_ibfk_1" FromRole="tblroles" ToRole="tblusers" />
+        </EntityType>
+        <EntityType Name="tblsaloonuser">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="phone" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="zipcode" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="saloon_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="created_at" Type="DateTime" Nullable="false" />
+          <Property Name="updated_at" Type="DateTime" Nullable="false" />
+          <Property Name="role_id" Type="Int32" Nullable="false" />
+          <Property Name="businesshrs_from" Type="Time" />
+          <Property Name="businesshrs_to" Type="Time" />
+          <NavigationProperty Name="tblcheckins" Relationship="Self.tblcheckins_ibfk_1" FromRole="tblsaloonusers" ToRole="tblcheckins" />
+          <NavigationProperty Name="tblrole" Relationship="Self.tblsaloonusers_ibfk_1" FromRole="tblsaloonusers" ToRole="tblroles" />
+        </EntityType>
+        <EntityType Name="tbluser">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="phone" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="zipcode" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="created_at" Type="DateTime" />
+          <Property Name="updated_at" Type="DateTime" />
+          <Property Name="role_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tblcheckins" Relationship="Self.tblcheckins_ibfk_2" FromRole="tblusers" ToRole="tblcheckins" />
+          <NavigationProperty Name="tblrole" Relationship="Self.tblusers_ibfk_1" FromRole="tblusers" ToRole="tblroles" />
+        </EntityType>
+        <Association Name="tblcheckins_ibfk_1">
+          <End Role="tblsaloonusers" Type="Self.tblsaloonuser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblcheckins" Type="Self.tblcheckin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblsaloonusers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblcheckins">
+              <PropertyRef Name="saloon_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tblcheckins_ibfk_2">
+          <End Role="tblusers" Type="Self.tbluser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblcheckins" Type="Self.tblcheckin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblusers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblcheckins">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tblcheckins_ibfk_3">
+          <End Role="tblroles" Type="Self.tblrole" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblcheckins" Type="Self.tblcheckin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblroles">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblcheckins">
+              <PropertyRef Name="role_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tblsaloonusers_ibfk_1">
+          <End Role="tblroles" Type="Self.tblrole" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblsaloonusers" Type="Self.tblsaloonuser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblroles">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblsaloonusers">
+              <PropertyRef Name="role_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tblusers_ibfk_1">
+          <End Role="tblroles" Type="Self.tblrole" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblusers" Type="Self.tbluser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblroles">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblusers">
+              <PropertyRef Name="role_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="saloondbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblcheckins" EntityType="Self.tblcheckin" />
+          <EntitySet Name="tblroles" EntityType="Self.tblrole" />
+          <EntitySet Name="tblsaloonusers" EntityType="Self.tblsaloonuser" />
+          <EntitySet Name="tblusers" EntityType="Self.tbluser" />
+          <AssociationSet Name="tblcheckins_ibfk_1" Association="Self.tblcheckins_ibfk_1">
+            <End Role="tblsaloonusers" EntitySet="tblsaloonusers" />
+            <End Role="tblcheckins" EntitySet="tblcheckins" />
+          </AssociationSet>
+          <AssociationSet Name="tblcheckins_ibfk_2" Association="Self.tblcheckins_ibfk_2">
+            <End Role="tblusers" EntitySet="tblusers" />
+            <End Role="tblcheckins" EntitySet="tblcheckins" />
+          </AssociationSet>
+          <AssociationSet Name="tblcheckins_ibfk_3" Association="Self.tblcheckins_ibfk_3">
+            <End Role="tblroles" EntitySet="tblroles" />
+            <End Role="tblcheckins" EntitySet="tblcheckins" />
+          </AssociationSet>
+          <AssociationSet Name="tblsaloonusers_ibfk_1" Association="Self.tblsaloonusers_ibfk_1">
+            <End Role="tblroles" EntitySet="tblroles" />
+            <End Role="tblsaloonusers" EntitySet="tblsaloonusers" />
+          </AssociationSet>
+          <AssociationSet Name="tblusers_ibfk_1" Association="Self.tblusers_ibfk_1">
+            <End Role="tblroles" EntitySet="tblroles" />
+            <End Role="tblusers" EntitySet="tblusers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="saloondbModelStoreContainer" CdmEntityContainer="saloondbEntities">
+          <EntitySetMapping Name="tblcheckins">
+            <EntityTypeMapping TypeName="saloondbModel.tblcheckin">
+              <MappingFragment StoreEntitySet="tblcheckins">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="checkin_time" ColumnName="checkin_time" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+                <ScalarProperty Name="saloon_id" ColumnName="saloon_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="role_id" ColumnName="role_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblroles">
+            <EntityTypeMapping TypeName="saloondbModel.tblrole">
+              <MappingFragment StoreEntitySet="tblroles">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="role" ColumnName="role" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblsaloonusers">
+            <EntityTypeMapping TypeName="saloondbModel.tblsaloonuser">
+              <MappingFragment StoreEntitySet="tblsaloonusers">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="zipcode" ColumnName="zipcode" />
+                <ScalarProperty Name="saloon_name" ColumnName="saloon_name" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+                <ScalarProperty Name="role_id" ColumnName="role_id" />
+                <ScalarProperty Name="businesshrs_from" ColumnName="businesshrs_from" />
+                <ScalarProperty Name="businesshrs_to" ColumnName="businesshrs_to" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblusers">
+            <EntityTypeMapping TypeName="saloondbModel.tbluser">
+              <MappingFragment StoreEntitySet="tblusers">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="zipcode" ColumnName="zipcode" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+                <ScalarProperty Name="role_id" ColumnName="role_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

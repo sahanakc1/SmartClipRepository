@@ -1,0 +1,270 @@
+﻿
+@{
+    ViewBag.Title = "mywallet";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="page-title-box">
+                <div class="btn-group float-right">
+                    <ol class="breadcrumb hide-phone p-0 m-0">
+                        <li class="breadcrumb-item"><a href="#">Smart Clips</a></li>
+                        <li class="breadcrumb-item active">Wallet</li>
+                    </ol>
+                </div>
+                <h4 class="page-title">My Wallet</h4>
+            </div>
+        </div>
+    </div>
+    <!-- end page title end breadcrumb -->
+    <div class="row">
+        <div class="col-md-4 col-xl-2">
+            <div class="card m-b-30">
+                <div class="card-body">
+                    <div class=" text-center">
+                        <img src="~/assets/images/users/avatar-1.jpg" alt="" class="rounded-circle img-thumbnail w-50">
+                        <h4 class="font-16">Steven Meyers</h4>
+                        <a href="" class="text-muted font-14">StevenMeyers@gmail.com</a>
+                        <ul class="list-unstyled list-inline mb-0 mt-3">
+                            <li class="list-inline-item"><a href="#"><i class="ti-facebook text-primary"></i></a></li>
+                            <li class="list-inline-item"><a href="#"><i class="ti-linkedin text-danger"></i></a></li>
+                            <li class="list-inline-item"><a href="#"><i class="ti-twitter-alt text-info"></i></a></li>
+                        </ul>
+                        <a href="" class="btn btn-primary btn-sm mt-2">Wallet Lock</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8 col-xl-6">
+            <div class="tab-2 m-b-30">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home-2" data-toggle="tab" aria-expanded="false">Bitcoin</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#profile-2" data-toggle="tab" aria-expanded="false">Dashcoin</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about-2" data-toggle="tab" aria-expanded="false">Ethereum</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact-2" data-toggle="tab" aria-expanded="false">Litecoin</a>
+                    </li>
+                </ul>
+                <div class="tab-content bg-white">
+                    <div class="tab-pane active home-text p-4 text-center" id="home-2">
+                        <img src="~/assets/images/coins/btc.png" alt="">
+                        <h1 class="mt-2">3.18424000 <small>BTC</small></h1>
+                        <h6>$ 33277.36605044718</h6>
+                        <a href="#" class="btn btn-primary mt-3">Send</a>
+                        <a href="#" class="btn btn-primary mt-3">Receive</a>
+                    </div>
+                    <div class="tab-pane p-4 text-center" id="profile-2">
+                        <img src="~/assets/images/coins/dash.png" alt="">
+                        <h1 class="mt-2">2.99424000 <small>DASH</small></h1>
+                        <h6>$ 277.36605044718</h6>
+                        <a href="#" class="btn btn-primary mt-3">Send</a>
+                        <a href="#" class="btn btn-primary mt-3">Receive</a>
+                    </div>
+                    <div class="tab-pane p-4 text-center" id="about-2">
+                        <img src="~/assets/images/coins/eth.png" alt="">
+                        <h1 class="mt-2">1.17424000 <small>ETH</small></h1>
+                        <h6>$ 77.36605044718</h6>
+                        <a href="#" class="btn btn-primary mt-3">Send</a>
+                        <a href="#" class="btn btn-primary mt-3">Receive</a>
+                    </div>
+                    <div class="tab-pane p-4 text-center" id="contact-2">
+                        <img src="~/assets/images/coins/lite.png" alt="">
+                        <h1 class="mt-2">5.00024000 <small>LTC</small></h1>
+                        <h6>$ 57.36605044718</h6>
+                        <a href="#" class="btn btn-primary mt-3">Send</a>
+                        <a href="#" class="btn btn-primary mt-3">Receive</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-xl-4">
+            <div class="card m-b-30">
+                <div class="card-body">
+                    <h4 class="mt-0 header-title">Currency Cacculater</h4>
+                    <div class="calculator-block" style="height:210px">
+                        <div class="calculator-body">
+                            <script src="https://www.cryptonator.com/ui/js/widget/calc_widget.js"></script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- end row -->
+
+    <div class="row">
+        <div class="col-md-12 col-xl-6">
+            <div class="card m-b-30">
+                <div class="card-body">
+                    <h4 class="mt-0 header-title">Buy BTC</h4>
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group mb-0 row">
+                            <div class="col-md-12">
+                                <div class="input-group mt-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-light" id="basic-addon1">Amount</span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="123" aria-label="123" aria-describedby="basic-addon1">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text bg-light" id="basic-addon2">BTC</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input-group mt-3">
+                                    <div class="input-group-prepend">
+                                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Price</button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="#">Last Trade Price</a>
+                                            <a class="dropdown-item" href="#">Last Buy Price</a>
+                                            <a class="dropdown-item" href="#">Last Sell Price</a>
+                                        </div>
+                                    </div>
+                                    <input type="email" id="example-input2-group3" name="example-input2-group3" class="form-control" placeholder="$ 24,00">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text bg-light" id="basic-addon4">$ Dollor</span>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input-group mt-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-light" id="basic-addon5">Total</span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="123" aria-label="123" aria-describedby="basic-addon1">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text bg-light" id="basic-addon6">$ Dollor</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mt-3 ml-auto">
+                                <a href="#" class="btn btn-success btn-block">Buy Coins</a>
+                            </div>
+                        </div> <!--end row-->
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 col-xl-6">
+            <div class="card m-b-30">
+                <div class="card-body">
+                    <h4 class="mt-0 header-title">Sell BTC</h4>
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group mb-0 row">
+                            <div class="col-md-12">
+                                <div class="input-group mt-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-light" id="basic-addon7">Amount</span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="123" aria-label="123" aria-describedby="basic-addon1">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text bg-light" id="basic-addon8">BTC</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input-group mt-3">
+                                    <div class="input-group-prepend">
+                                        <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Price
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="#">Last Trade Price</a>
+                                            <a class="dropdown-item" href="#">Last Buy Price</a>
+                                            <a class="dropdown-item" href="#">Last Sell Price</a>
+                                        </div>
+                                    </div>
+                                    <input type="email" id="example-input2-group3" name="example-input2-group3" class="form-control" placeholder="$ 24,00">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text bg-light" id="basic-addon9">$ Dollor</span>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input-group mt-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-light" id="basic-addon10">Total</span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="123" aria-label="123" aria-describedby="basic-addon1">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text bg-light" id="basic-addon11">$ Dollor</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mt-3 ml-auto">
+                                <a href="#" class="btn btn-danger btn-block">Sell Coins</a>
+                            </div>
+                        </div> <!--end row-->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div> <!-- end row -->
+    <div class="row">
+        <div class="col-md-12 col-xl-6">
+            <div class="mini-stat clearfix bg-white">
+                <h4 class="mt-0 header-title">24 Hour Volume</h4>
+                <div class="row align-items-center">
+                    <div class="col-4 mt-1">
+                        <img src="~/assets/images/coins/btc.png" alt="" class="rounded-curcle">
+                    </div>
+                    <div class="col-4">
+                        <h4 class="counter text-dark m-0 pb-1">$ 11852 <small class="text-success font-14"><i class="mdi mdi-arrow-up"></i> 5.45%</small></h4>
+                        <small class="text-muted">Today High</small>
+                    </div>
+                    <div class="col-4">
+                        <h4 class="counter text-dark m-0 pb-1">$ 10582 <small class="text-danger font-14"><i class="mdi mdi-arrow-down"></i> -3.15%</small></h4>
+                        <small class="text-muted">Today Low</small>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-xl-3">
+            <div class="mini-stat clearfix bg-white">
+                <div class="row align-items-center">
+                    <div class="col-4">
+                        <img src="~/assets/images/coins/lite.png" alt="" class="rounded-curcle">
+                    </div>
+                    <div class="col-6 ml-auto text-center">
+                        <h2>$ 9055</h2>
+                        <small class="text-muted">USD Deposit</small>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-xl-3">
+            <div class="mini-stat clearfix bg-white">
+                <div class="row align-items-center">
+                    <div class="col-4">
+                        <img src="~/assets/images/coins/dollar.png" alt="" class="rounded-curcle">
+                    </div>
+                    <div class="col-6 ml-auto text-center">
+                        <h2>$ 20533</h2>
+                        <small class="text-muted">Total Deposit</small>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div> <!-- end row -->
+
+</div><!-- container -->
+
+@section scripts{
+    <!-- App js -->
+    <script src="~/assets/js/app.js"></script>
+}

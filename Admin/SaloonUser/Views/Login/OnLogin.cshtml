@@ -1,0 +1,35 @@
+﻿
+
+<!DOCTYPE html>
+
+<html>
+@*<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/Content/css/dashboard.css">
+    <title>OnLogin</title>
+</head>
+<body>
+
+
+    <table class="responstable">
+        <thead>
+            <tr>
+                <th>Customer Name</th>
+                <th>Email Id</th>
+                <th>Phone Number</th>
+                <th>Time SLot</th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>@item.tbluser.name</td>
+        <td>@item.tbluser.email</td>
+        <td>@item.tbluser.phone</td>
+        <td>@item.checkin_time</td>
+    </tr>
+        }
+
+    </table>
+</body>*@
+</html>

@@ -1,0 +1,113 @@
+﻿@model List<DataLayer.EntityModel.tblcheckin>
+
+@{
+    ViewBag.Title = "DashBoard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/assets/plugins/jvectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet">
+
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="page-title-box">
+                <div class="btn-group float-right">
+                    <ol class="breadcrumb hide-phone p-0 m-0">
+                        <li class="breadcrumb-item"><a href="#">Smart Clips</a></li>
+                        <li class="breadcrumb-item active">Dashboard</li>
+                    </ol>
+                </div>
+                <h4 class="page-title">Dashboard</h4>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-12 col-xl-8">
+            <div class="card bg-white m-b-30">
+                <div class="card-body new-user">
+                    <h5 class="header-title mb-4 mt-0">Your appointments today</h5>
+                    <div class="table-responsive">
+                        <table class="table table-hover mb-0">
+                            <thead>
+                                <tr>
+                                    <th class="border-top-0"></th>
+                                    <th class="border-top-0">Customer Name</th>
+                                    <th class="border-top-0">Email Id</th>
+                                    <th class="border-top-0">Phone Number</th>
+                                    <th class="border-top-0">Time Slot</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            <i class="mdi mdi-assistant"></i>
+                                        <td>
+                                            <a href="javascript:void(0);">@item.tbluser.name</a>
+                                        </td>
+
+                                        <td>@item.tbluser.email</td>
+                                        <td>@item.tbluser.phone</td>
+                                        <td>@item.checkin_time</td>
+                                    </tr>
+                                }
+
+                                </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-xl-4">
+            <div class="card m-b-30">
+                <div class="card-body">
+                    <h4 class="mt-0 header-title">Appointments Vs Timeslots</h4>
+
+                    <ul class="list-inline widget-chart m-t-20 text-center">
+
+                        <li>
+                            <h4 class=""><b>462</b><small class="font-12">BTC</small></h4>
+                            <p class="text-muted m-b-0">Sell</p>
+                        </li>
+                        <li>
+                            <h4 class=""><b>710</b><small class="font-12">BTC</small></h4>
+                            <p class="text-muted m-b-0">Buy</p>
+                        </li>
+                        <li>
+                            <h4 class=""><b>1172</b><small class="font-12">BTC</small></h4>
+                            <p class="text-muted m-b-0">Total</p>
+                        </li>
+                    </ul>
+
+                    <div id="flot-pie-chart" style="height: 300px"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@section scripts{
+    <!-- jQuery  -->
+    <!--Morris Chart-->
+    <script src="~/assets/plugins/flot-chart/jquery.flot.min.js"></script>
+    <script src="~/assets/plugins/flot-chart/jquery.flot.time.js"></script>
+    <script src="~/assets/plugins/flot-chart/curvedLines.js"></script>
+    <script src="~/assets/plugins/flot-chart/jquery.flot.pie.js"></script>
+    <script src="~/assets/plugins/morris/morris.min.js"></script>
+    <script src="~/assets/plugins/raphael/raphael-min.js"></script>
+    <script src="~/assets/plugins/jquery-sparkline/jquery.sparkline.min.js"></script>
+
+    <script src="~/assets/plugins/jvectormap/jquery-jvectormap-2.0.2.min.js"></script>
+    <script src="~/assets/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+
+
+    <script src="~/assets/pages/crypto-dash.init.js"></script>
+
+    <!-- App js -->
+    <script src="~/assets/js/app.js"></script>
+}

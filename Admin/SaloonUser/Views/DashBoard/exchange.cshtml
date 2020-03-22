@@ -1,0 +1,273 @@
+﻿
+@{
+    ViewBag.Title = "exchange";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!--Morris Chart CSS -->
+<link rel="stylesheet" href="~/assets/plugins/morris/morris.css">
+
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="page-title-box">
+                <div class="btn-group float-right">
+                    <ol class="breadcrumb hide-phone p-0 m-0">
+                        <li class="breadcrumb-item"><a href="#">Smart Clips</a></li>
+                        <li class="breadcrumb-item active">Exchange</li>
+                    </ol>
+                </div>
+                <h4 class="page-title">Exchange</h4>
+            </div>
+        </div>
+    </div>
+    <!-- end page title end breadcrumb -->
+    <div class="row">
+        <div class="col-md-12 col-xl-8">
+            <div class="card m-b-30">
+                <div class="card-body">
+                    <h4 class="mt-0 header-title">Buy & Sell</h4>
+                    <div id="morris-bar-example" style="height: 300px"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-xl-4">
+            <div class="card m-b-30">
+                <div class="card-body">
+                    <h4 class="mt-0 header-title">My Balance</h4>
+                    <div id="morris-donut-example" style="height: 300px"></div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- end row -->
+    <div class="row">
+        <div class="col-md-12 col-xl-4">
+            <div class="card m-b-30">
+                <div class="card-body">
+                    <h4 class="mt-0 header-title">Buy BTC</h4>
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group mb-0 row">
+                            <div class="col-md-12">
+                                <div class="input-group mt-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-light" id="basic-addon1">Amount</span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="123" aria-label="123" aria-describedby="basic-addon1">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text bg-light" id="basic-addon2">BTC</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input-group mt-3">
+                                    <div class="input-group-prepend">
+                                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Price</button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="#">Last Trade Price</a>
+                                            <a class="dropdown-item" href="#">Last Buy Price</a>
+                                            <a class="dropdown-item" href="#">Last Sell Price</a>
+                                        </div>
+                                    </div>
+                                    <input type="email" id="example-input2-group3" name="example-input2-group3" class="form-control" placeholder="$ 24,00">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text bg-light" id="basic-addon4">$ Dollor</span>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input-group mt-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-light" id="basic-addon5">Total</span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="123" aria-label="123" aria-describedby="basic-addon1">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text bg-light" id="basic-addon6">$ Dollor</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mt-3 ml-auto">
+                                <a href="#" class="btn btn-success btn-block">Buy Coins</a>
+                            </div>
+                        </div> <!--end row-->
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 col-xl-4">
+            <div class="card m-b-30">
+                <div class="card-body">
+                    <h4 class="mt-0 header-title">Sell BTC</h4>
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group mb-0 row">
+                            <div class="col-md-12">
+                                <div class="input-group mt-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-light" id="basic-addon7">Amount</span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="123" aria-label="123" aria-describedby="basic-addon1">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text bg-light" id="basic-addon8">BTC</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input-group mt-3">
+                                    <div class="input-group-prepend">
+                                        <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Price
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="#">Last Trade Price</a>
+                                            <a class="dropdown-item" href="#">Last Buy Price</a>
+                                            <a class="dropdown-item" href="#">Last Sell Price</a>
+                                        </div>
+                                    </div>
+                                    <input type="email" id="example-input2-group3" name="example-input2-group3" class="form-control" placeholder="$ 24,00">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text bg-light" id="basic-addon9">$ Dollor</span>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input-group mt-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-light" id="basic-addon10">Total</span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="123" aria-label="123" aria-describedby="basic-addon1">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text bg-light" id="basic-addon11">$ Dollor</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mt-3 ml-auto">
+                                <a href="#" class="btn btn-danger btn-block">Sell Coins</a>
+                            </div>
+                        </div> <!--end row-->
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-xl-4">
+            <div class="card m-b-30">
+                <div class="card-body">
+                    <h4 class="mt-0 header-title">Currency Cacculater</h4>
+                    <div class="calculator-block" style="height:210px">
+                        <div class="calculator-body">
+                            <script src="https://www.cryptonator.com/ui/js/widget/calc_widget.js"></script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div> <!-- end row -->
+    <div class="row">
+        <div class="col-md-12 col-xl-6">
+            <div class="card m-b-30">
+                <div class="card-body">
+                    <h4 class="mt-0 header-title">Buy Orders</h4>
+                    <div class="table-responsive-sm mt-2">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="border-top-0"><b>Amount (BTC)</b></th>
+                                    <th scope="col" class="border-top-0"><b>Price</b></th>
+                                    <th scope="col" class="border-top-0"><b>Total ($)</b></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>0.411</td>
+                                    <td>5,00,000</td>
+                                    <td>2,50,000</td>
+                                </tr>
+                                <tr>
+                                    <td>0.124</td>
+                                    <td>3,00,000</td>
+                                    <td>1,50,000</td>
+                                </tr>
+                                <tr>
+                                    <td>0.080</td>
+                                    <td>80,000</td>
+                                    <td>40,000</td>
+                                </tr>
+                                <tr>
+                                    <td>0.411</td>
+                                    <td>5,00,000</td>
+                                    <td>2,50,000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 col-xl-6">
+            <div class="card m-b-30">
+                <div class="card-body">
+                    <h4 class="mt-0 header-title">Sell Orders</h4>
+                    <div class="table-responsive-sm mt-2">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="border-top-0"><b>Amount (BTC)</b></th>
+                                    <th scope="col" class="border-top-0"><b>Price</b></th>
+                                    <th scope="col" class="border-top-0"><b>Total ($)</b></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>0.411</td>
+                                    <td>5,00,000</td>
+                                    <td>2,50,000</td>
+                                </tr>
+                                <tr>
+                                    <td>0.124</td>
+                                    <td>3,00,000</td>
+                                    <td>1,50,000</td>
+                                </tr>
+                                <tr>
+                                    <td>0.080</td>
+                                    <td>80,000</td>
+                                    <td>40,000</td>
+                                </tr>
+                                <tr>
+                                    <td>0.411</td>
+                                    <td>5,00,000</td>
+                                    <td>2,50,000</td>
+                                </tr>
+                                <tr>
+                                    <td>0.124</td>
+                                    <td>3,00,000</td>
+                                    <td>1,50,000</td>
+                                </tr>
+                                <tr>
+                                    <td>0.080</td>
+                                    <td>80,000</td>
+                                    <td>40,000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+@section scripts{
+
+    <!--Morris Chart-->
+    <script src="~/assets/plugins/morris/morris.min.js"></script>
+    <script src="~/assets/plugins/raphael/raphael-min.js"></script>
+    <script src="~/assets/pages/crypto-exchange.init.js"></script>
+
+    <!-- App js -->
+    <script src="~/assets/js/app.js"></script>
+}
