@@ -7,6 +7,7 @@
              xmlns:viewModel="clr-namespace:SmartClips.ViewModels"
              xmlns:skiaSharp="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
              mc:Ignorable="d"
+             Shell.NavBarIsVisible="False"
              x:Class="SmartClips.Views.LoginPage" 
              BackgroundColor="#ebecef">
     <ContentPage.Resources>
@@ -89,7 +90,8 @@
                         <Button Text="Login"
                                 Margin="0, 40, 0, 0"
                                 Style="{StaticResource FormSubmitBtnStyle}"
-                                Command="{Binding LoginCommand}"/>
+                                Clicked="Button_Clicked"
+                               />
                         <Label 
                                Margin="-10, 15, 0, -15"
                                Style="{StaticResource FormLabelStyle}" >

@@ -22,5 +22,8 @@ namespace BusinessLayer.Models
         public Nullable<System.TimeSpan> businesshrs_from { get; set; }
         public Nullable<System.TimeSpan> businesshrs_to { get; set; }
         public string role { get; set; }
+
+        public double lattitude { get; set; }
+        public double longitude { get; set; }
     }
 }

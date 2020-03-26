@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace SmartClips.Views
+namespace SmartClips.Controls
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class DashBoard : TabbedPage
+    public partial class FlyoutHeader : ContentView
     {
-        public DashBoard()
+        public FlyoutHeader()
         {
             InitializeComponent();
         }

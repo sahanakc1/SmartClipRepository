@@ -3,6 +3,7 @@ using SkiaSharp.Views.Forms;
 using SmartClips.Animations;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using SmartClips.Services;
 
 namespace SmartClips.Views
 {
@@ -10,7 +11,7 @@ namespace SmartClips.Views
     public partial class LoginPage : ContentPage
     {
         readonly HighlightForm _highlightForm;
-
+        PageService PageService = new PageService();
         public LoginPage()
         {
             InitializeComponent();
@@ -45,6 +46,13 @@ namespace SmartClips.Views
         void SkCanvasViewSizeChanged(object sender, EventArgs e)
         {
             _highlightForm.Invalidate(_skCanvasView, _formLayout);
+        }
+
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+           
+           await Shell.Current.GoToAsync("//Main/tab1/ShopsList");
+            Shell.SetFlyoutBehavior(Shell.Current, FlyoutBehavior.Flyout);
         }
     }
 }

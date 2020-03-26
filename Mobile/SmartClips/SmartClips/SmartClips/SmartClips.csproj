@@ -22,22 +22,29 @@
     <PackageReference Include="PresentationFramework" Version="4.6.0" />
     <PackageReference Include="SkiaSharp.Views.Forms" Version="1.68.1.1" />
     <PackageReference Include="System.Threading.Tasks" Version="4.3.0" />
-    <PackageReference Include="Xamarin.Forms" Version="4.5.0.396" />  
+    <PackageReference Include="Xam.Plugins.Messaging" Version="5.2.0" />
+    <PackageReference Include="Xamarin.Forms" Version="4.5.0.495" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.5.1" />  
-    <PackageReference Include="Xamarin.Forms.Maps" Version="4.4.0.991265" />
+    <PackageReference Include="Xamarin.Forms.Maps" Version="4.5.0.495" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Themes\LightTheme.xaml">
+    <EmbeddedResource Update="Views\AppShell.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\DashBoard.xaml">
+    <EmbeddedResource Update="Controls\FlyoutHeader.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Themes\LightTheme.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\History.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\LoginPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\LogoutPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\MapPage.xaml">
@@ -58,15 +65,23 @@
     <EmbeddedResource Update="Views\Styles.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\SwipeViewDemo1.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Converters\" />
-    <Folder Include="Controls\" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\BusinessLayer\BusinessLayer.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\SwipeViewDemo1.xaml.cs">
+      <DependentUpon>SwipeViewDemo1.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>

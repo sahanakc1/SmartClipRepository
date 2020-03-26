@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SmartClips.Services;
 using SmartClips.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -12,11 +13,12 @@ namespace SmartClips.Views
   
     public partial class ShopsPage : ContentPage
     {
+        private PageService page;
         public ShopsPage()
-        {
-            InitializeComponent();
-            try
+        {try
             {
+                InitializeComponent();
+                page = new PageService();
                 BindingContext = new ShopViewModel();
             }
             catch(Exception ex)
@@ -24,25 +26,14 @@ namespace SmartClips.Views
 
             }
         }
-
-        private void CollectionView_Focused(object sender, FocusEventArgs e)
+        private async void LoadSaloonDetailPage(object SaloonDetails)
         {
-
+            await page.PushAsync(new SmartClips.Views.SaloonDetailsPage(SaloonDetails));
         }
-
-        private void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
         {
-
-        }
-
-        private void CollectionView_ScrollToRequested(object sender, ScrollToRequestEventArgs e)
-        {
-
-        }
-
-        private void Frame_Focused(object sender, FocusEventArgs e)
-        {
-
+            MyCollectionView.SelectedItem = (sender as Frame).BindingContext;
+            LoadSaloonDetailPage(MyCollectionView.SelectedItem);
         }
     }
 }

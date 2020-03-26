@@ -9,6 +9,10 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using SmartClips.Models;
 using BusinessLayer.Models;
+using System.Linq;
+using System.Threading.Tasks;
+using Xamarin.Essentials;
+using Xamarin.Forms.Xaml;
 
 namespace SmartClips.ViewModels
 {
@@ -25,7 +29,7 @@ namespace SmartClips.ViewModels
         public LoginViewModel()
         {
             page = new PageService();
-            LoginCommand = new Command(LoadMaps);
+            LoginCommand = new Command(LoadShellPage);
             SignUpCommand = new Command(LoadSignUp);
         }
 
@@ -83,18 +87,10 @@ namespace SmartClips.ViewModels
         public ICommand LoginCommand { get;}
         public ICommand SignUpCommand { get; }
 
-        private async void LoadMaps()
+        private async void LoadShellPage()
         {
-            try
-            {
-                await page.PushAsync(new SmartClips.Views.DashBoard());
-            }
-            catch(Exception ex)
-            {
-
-            }
-          //  await page.PushAsync(new SmartClips.Views.Maps());
-          //    await page.PushAsync(new SmartClips.Views.MapPage());
+            await Shell.Current.GoToAsync("///ShopsList");
+            Shell.SetFlyoutBehavior(Shell.Current, FlyoutBehavior.Flyout);
         }
 
         private async void LoadSignUp()

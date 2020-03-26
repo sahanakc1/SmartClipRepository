@@ -31,7 +31,7 @@ namespace SmartClips.ViewModels
 
         private async void LoadSaloonDetailsPage()
         {
-            await page.PushAsync(new SmartClips.Views.SaloonDetailsPage());
+           // await page.PushAsync(new SmartClips.Views.SaloonDetailsPage());
         }
         void LoadSaloons()
         {

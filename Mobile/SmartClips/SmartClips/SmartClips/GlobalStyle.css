@@ -1,0 +1,23 @@
+﻿^ContentPage {
+    background-color: white;
+}
+
+^Shell {
+    -xf-shell-background: #5561F9;
+    -xf-shell-foreground: white;
+    -xf-shell-title: white;
+    -xf-shell-disabled: #B4FFFFFF;
+    -xf-shell-unselected: #33FFFFFF;
+    -xf-shell-navbarhasshadow: false;
+}
+
+.bgColor {
+    background-color: #5561F9;
+}
+
+^Label.emptyLabel {
+    font-size: 16;
+    color: black;
+    margin: 0, 8;
+    text-align: center;
+}

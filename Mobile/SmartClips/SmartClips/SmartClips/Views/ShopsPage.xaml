@@ -76,7 +76,10 @@
                 <Grid BackgroundColor="{StaticResource BackgroundColor}">
                 <SwipeView BackgroundColor="{StaticResource BackgroundColor}"
                     HeightRequest="140" VerticalOptions="FillAndExpand">
-                    <SwipeView.RightItems>
+                        <SwipeView.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"/>
+                        </SwipeView.GestureRecognizers>
+                        <SwipeView.RightItems>
                         <SwipeItems
                             Mode="Reveal">
                             <SwipeItemView>
@@ -100,7 +103,7 @@
                                 <Frame
                                 Style="{StaticResource FrameStyle}">
                                     <Frame.GestureRecognizers>
-                                        <TapGestureRecognizer Command="{Binding LoadSaloonDetailCommad}"/>
+                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" />
                                     </Frame.GestureRecognizers>
                                     <Grid 
                                     VerticalOptions="Center"
@@ -159,6 +162,7 @@
                 Style="{StaticResource TitleStyle}"/>
             <CollectionView
                 Grid.Row="1"
+                x:Name="MyCollectionView"
                 ItemsSource="{Binding Saloons}"
                 ItemTemplate="{StaticResource MessageTemplate}"
                 Margin="12, 12, 12, 0">

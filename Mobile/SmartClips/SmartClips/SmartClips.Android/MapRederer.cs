@@ -62,8 +62,9 @@ namespace SmartClips.Droid
 
         void OnInfoWindowClick(object sender, GoogleMap.InfoWindowClickEventArgs e)
         {
+            bool isfromMaps = true;
             var customPin = GetCustomPin(e.Marker);
-            LoadSaloonDetail();
+            LoadSaloonDetail(customPin, isfromMaps);
 
             //if (customPin == null)
             //{
@@ -78,9 +79,9 @@ namespace SmartClips.Droid
             //    Android.App.Application.Context.StartActivity(intent);
             //}
         }
-        private async void LoadSaloonDetail()
+        private async void LoadSaloonDetail(CustomPin customPin,bool isfromMaps)
         {
-            await page.PushAsync(new SmartClips.Views.SaloonDetailsPage());
+            await page.PushAsync(new SmartClips.Views.SaloonDetailsPage(customPin,isfromMaps));
         }
 
         public Android.Views.View GetInfoContents(Marker marker)
@@ -131,7 +132,7 @@ namespace SmartClips.Droid
         {
             var position = new Position(annotation.Position.Latitude, annotation.Position.Longitude);
             foreach (var pin in customPins)
-            {
+             {
                 if (pin.Position == position)
                 {
                     return pin;
