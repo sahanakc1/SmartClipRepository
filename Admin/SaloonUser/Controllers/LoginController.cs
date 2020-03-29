@@ -58,7 +58,8 @@ namespace SaloonUser.Controllers
             saloonUser.businesshrs_from = System.TimeSpan.Parse(formCollection["businesshrs_from"]);
             saloonUser.businesshrs_to = System.TimeSpan.Parse(formCollection["businesshrs_to"]);
             saloonUser.role_id = 2;
-
+            saloonUser.lattitude = 0;
+            saloonUser.longitude = 0;
             using (saloondbEntities DBModel = new saloondbEntities())
             {
                 DBModel.saloonusers.Add(saloonUser);

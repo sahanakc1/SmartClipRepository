@@ -11,9 +11,7 @@ namespace DataLayer.EntityModel
 {
     using System;
     using System.Collections.Generic;
-    using Newtonsoft.Json;
-
-
+    
     public partial class tblcheckin
     {
         public int id { get; set; }
@@ -23,12 +21,9 @@ namespace DataLayer.EntityModel
         public int saloon_id { get; set; }
         public int user_id { get; set; }
         public int role_id { get; set; }
-
-        [JsonIgnore]
+    
         public virtual tblsaloonuser tblsaloonuser { get; set; }
-        [JsonIgnore]
         public virtual tbluser tbluser { get; set; }
-        [JsonIgnore]
         public virtual tblrole tblrole { get; set; }
     }
 }

@@ -4,11 +4,11 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="9f28da279feb468a888ba83b494e4153" Name="Diagram1">
-        <EntityTypeShape EntityType="saloondbModel.tblcheckin" Width="1.5" PointX="5.25" PointY="9" IsExpanded="true" />
-        <EntityTypeShape EntityType="saloondbModel.tblrole" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
+      <Diagram DiagramId="e9dd3b39e21f4280a54640f59fe428a2" Name="Diagram1">
+        <EntityTypeShape EntityType="saloondbModel.tblcheckin" Width="1.5" PointX="5.25" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="saloondbModel.tblrole" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
         <EntityTypeShape EntityType="saloondbModel.tblsaloonuser" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
-        <EntityTypeShape EntityType="saloondbModel.tbluser" Width="1.5" PointX="3" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="saloondbModel.tbluser" Width="1.5" PointX="3" PointY="12" IsExpanded="true" />
         <AssociationConnector Association="saloondbModel.tblcheckins_ibfk_1" ManuallyRouted="false" />
         <AssociationConnector Association="saloondbModel.tblcheckins_ibfk_2" ManuallyRouted="false" />
         <AssociationConnector Association="saloondbModel.tblcheckins_ibfk_3" ManuallyRouted="false" />

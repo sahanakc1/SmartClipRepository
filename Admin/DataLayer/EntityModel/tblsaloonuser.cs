@@ -10,7 +10,6 @@
 namespace DataLayer.EntityModel
 {
     using System;
-    using Newtonsoft.Json;
     using System.Collections.Generic;
     
     public partial class tblsaloonuser
@@ -34,12 +33,11 @@ namespace DataLayer.EntityModel
         public int role_id { get; set; }
         public Nullable<System.TimeSpan> businesshrs_from { get; set; }
         public Nullable<System.TimeSpan> businesshrs_to { get; set; }
+        public double lattitude { get; set; }
+        public double longitude { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-
-       // [JsonIgnore]
         public virtual ICollection<tblcheckin> tblcheckins { get; set; }
-        //[JsonIgnore]
         public virtual tblrole tblrole { get; set; }
     }
 }

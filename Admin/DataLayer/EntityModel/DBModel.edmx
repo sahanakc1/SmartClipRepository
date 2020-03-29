@@ -10,9 +10,9 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="checkin_time" Type="datetime" Precision="0" />
-          <Property Name="created_at" Type="datetime" Precision="0" />
-          <Property Name="updated_at" Type="datetime" Precision="0" />
+          <Property Name="checkin_time" Type="timestamp" Precision="0" />
+          <Property Name="created_at" Type="timestamp" Precision="0" />
+          <Property Name="updated_at" Type="timestamp" Precision="0" />
           <Property Name="saloon_id" Type="int" Nullable="false" />
           <Property Name="user_id" Type="int" Nullable="false" />
           <Property Name="role_id" Type="int" Nullable="false" />
@@ -43,6 +43,8 @@
           <Property Name="role_id" Type="int" Nullable="false" />
           <Property Name="businesshrs_from" Type="time" Precision="0" />
           <Property Name="businesshrs_to" Type="time" Precision="0" />
+          <Property Name="lattitude" Type="double" Nullable="false" />
+          <Property Name="longitude" Type="double" Nullable="false" />
         </EntityType>
         <EntityType Name="tblusers">
           <Key>
@@ -55,8 +57,8 @@
           <Property Name="Address" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="email" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="zipcode" Type="varchar" MaxLength="255" Nullable="false" />
-          <Property Name="created_at" Type="datetime" Precision="0" />
-          <Property Name="updated_at" Type="datetime" Precision="0" />
+          <Property Name="created_at" Type="timestamp" Precision="0" />
+          <Property Name="updated_at" Type="timestamp" Precision="0" />
           <Property Name="role_id" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="tblcheckins_ibfk_1">
@@ -204,6 +206,8 @@
           <Property Name="role_id" Type="Int32" Nullable="false" />
           <Property Name="businesshrs_from" Type="Time" />
           <Property Name="businesshrs_to" Type="Time" />
+          <Property Name="lattitude" Type="Double" Nullable="false" />
+          <Property Name="longitude" Type="Double" Nullable="false" />
           <NavigationProperty Name="tblcheckins" Relationship="Self.tblcheckins_ibfk_1" FromRole="tblsaloonusers" ToRole="tblcheckins" />
           <NavigationProperty Name="tblrole" Relationship="Self.tblsaloonusers_ibfk_1" FromRole="tblsaloonusers" ToRole="tblroles" />
         </EntityType>
@@ -365,6 +369,8 @@
                 <ScalarProperty Name="role_id" ColumnName="role_id" />
                 <ScalarProperty Name="businesshrs_from" ColumnName="businesshrs_from" />
                 <ScalarProperty Name="businesshrs_to" ColumnName="businesshrs_to" />
+                <ScalarProperty Name="lattitude" ColumnName="lattitude" />
+                <ScalarProperty Name="longitude" ColumnName="longitude" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -83,6 +83,8 @@ namespace BusinessLayer
                 saloonModel.created_at = item.created_at;
                 saloonModel.updated_at = item.updated_at;
                 saloonModel.role_id = item.role_id;
+                saloonModel.longitude = item.longitude;
+                saloonModel.lattitude = item.lattitude;
                 saloonModels.Add(saloonModel);
             }
             return saloonModels;
