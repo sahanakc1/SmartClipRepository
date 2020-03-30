@@ -15,8 +15,8 @@ namespace SmartClips
         public App()
         {
 
-            StyleSheetRegister.RegisterStyle("-xf-horizontal-options", typeof(VisualElement), nameof(View.HorizontalOptionsProperty));
-            StyleSheetRegister.RegisterStyle("-xf-shell-navbarhasshadow", typeof(Shell), nameof(Shell.NavBarHasShadowProperty));
+           // StyleSheetRegister.RegisterStyle("-xf-horizontal-options", typeof(VisualElement), nameof(View.HorizontalOptionsProperty));
+           // StyleSheetRegister.RegisterStyle("-xf-shell-navbarhasshadow", typeof(Shell), nameof(Shell.NavBarHasShadowProperty));
 
             InitializeComponent();
 

@@ -16,13 +16,16 @@ namespace SmartClips.Views
         public Dictionary<string, Type> Routes { get { return routes; } }
 
         public ICommand HelpCommand => new Command<string>(async (url) => await Launcher.OpenAsync(url));
-       
+        public ICommand LogoutCommand { get; }
+        public ICommand AboutCommand { get; }
 
         public AppShell()
         {
             InitializeComponent();
             RegisterRoutes();
             BindingContext = this;
+            LogoutCommand = new Command(LoadLoginPage);
+            AboutCommand = new Command(LoadAboutPage);
         }
 
         void RegisterRoutes()
@@ -30,7 +33,6 @@ namespace SmartClips.Views
             routes.Add("Login", typeof(LoginPage));
             routes.Add("ShopsList", typeof(ShopsPage));
             routes.Add("Maps", typeof(SmartClips.Views.Maps));
-            routes.Add("Logout", typeof(LogoutPage));
             routes.Add("About", typeof(AboutPage));
 
             foreach (var item in routes)
@@ -75,7 +77,29 @@ namespace SmartClips.Views
         void OnNavigated(object sender, ShellNavigatedEventArgs e)
         {
         }
-
        
+        private async void LoadLoginPage()
+        {
+            await Application.Current.MainPage.DisplayAlert("Logout", "You have been logged out", "ok");
+            await Shell.Current.GoToAsync("//Login");
+        }
+        private async void LoadAboutPage()
+        {
+            await Shell.Current.GoToAsync("//About");
+        }
+
+        private async void About_MenuItem_Clicked(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("About");
+        }
+
+        private async void Logout_MenuItem_Clicked(object sender, EventArgs e)
+        {
+            await Application.Current.MainPage.DisplayAlert("SmartClips", "You have been logged out", "ok");
+            await Shell.Current.GoToAsync("Login");
+            Shell.SetFlyoutBehavior(Shell.Current, FlyoutBehavior.Disabled);
+            Shell.Current.FlyoutIsPresented = false;
+            
+        }
     }
 }

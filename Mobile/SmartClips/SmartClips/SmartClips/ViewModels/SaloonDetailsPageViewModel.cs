@@ -5,6 +5,8 @@ using Xamarin.Forms;
 using BusinessLayer.Models;
 using System.Windows.Input;
 using Plugin.Messaging;
+using System.Net.Http;
+using System;
 
 namespace SmartClips.ViewModels
 {
@@ -14,6 +16,7 @@ namespace SmartClips.ViewModels
         private PageService page;
         public ICommand NumberDialCommad { get; }
         public ICommand LoadMapsCommad { get; }
+        public ICommand CheckinCommad { get; }
         public SaloonDetailsPageViewModel(object SaloonDetails,bool isfromMaps=false)
         {
             if(isfromMaps)
@@ -36,6 +39,7 @@ namespace SmartClips.ViewModels
             page = new PageService();
             NumberDialCommad = new Command(OnDialing);
             LoadMapsCommad = new Command(LoadMaps);
+            CheckinCommad = new Command(CheckinMethod);
         }
 
         public SaloonUserModel Saloons
@@ -57,6 +61,26 @@ namespace SmartClips.ViewModels
         private async void LoadMaps()
         {
             await page.PushAsync(new SmartClips.Views.Maps());
+        }
+        private void CheckinMethod()
+        {
+            var user = new SaloonUserModel();
+            user = Saloons;
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("https://localhost:44393/api/CheckinMethod/");
+                var postTask = client.PostAsJsonAsync<SaloonUserModel>("PostNewUser", user);
+                postTask.Wait();
+
+                var result = postTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+                    var readTask = result.Content.ReadAsAsync<SaloonUserModel>();
+                    readTask.Wait();
+
+                    var insertedStudent = readTask.Result;
+                }
+            }
         }
     }
 }

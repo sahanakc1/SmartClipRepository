@@ -73,23 +73,16 @@
                           ContentTemplate="{DataTemplate views:Maps}" />
         </Tab>
    
-       
-        <ShellContent Route="About"
-                      Style="{StaticResource DomesticShell}"
-                      Title="About"
-                      Icon="ic_feedback.png"
-                      ContentTemplate="{DataTemplate views:AboutPage}" />
 
-
-        <ShellContent Route="Logout"
-                      IsTabStop="True"
-                      Style="{StaticResource DomesticShell}"
-                      Title="Logout"
-                      Icon="ic_logout.png"
-                      ContentTemplate="{DataTemplate views:LogoutPage}">
-            
-        </ShellContent>
     </FlyoutItem>
-   
+    <MenuItem Icon="ic_feedback.png" 
+              Clicked="About_MenuItem_Clicked"
+              Text="About">
+    </MenuItem>
+
+    <MenuItem Icon="ic_logout.png" 
+              Clicked="Logout_MenuItem_Clicked"
+               Text="Logout">
+    </MenuItem>
 
 </Shell>

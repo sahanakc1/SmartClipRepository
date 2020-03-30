@@ -25,5 +25,10 @@ namespace BusinessLayer.Models
 
         public double lattitude { get; set; }
         public double longitude { get; set; }
+        public DateTime Date { get; set; }
+        public TimeSpan Timespan { get; set; }
+        public string Hours => Timespan.Hours.ToString("00");
+        public string Minutes => Timespan.Minutes.ToString("00");
+        public string Seconds => Timespan.Seconds.ToString("00");
     }
 }

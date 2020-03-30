@@ -8,6 +8,8 @@
              xmlns:skiaSharp="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
              mc:Ignorable="d"
              Shell.NavBarIsVisible="False"
+             Shell.FlyoutBehavior="Disabled"
+             Shell.TabBarIsVisible="False"
              x:Class="SmartClips.Views.LoginPage" 
              BackgroundColor="#ebecef">
     <ContentPage.Resources>

@@ -137,10 +137,15 @@
                                 <ScrollView
                                 IsEnabled="False"
                                 HorizontalOptions="End">
-                                <Image
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="10" Spacing="15">
+                                        <Label Text="{Binding Hours}" FontSize="15" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                        <Label Text="{Binding Minutes}" FontSize="15" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                        <Label Text="{Binding Seconds}" FontSize="15" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                    </StackLayout>
+                                    <!--<Image
                                     HeightRequest="150"
                                     Aspect="AspectFit"
-                                    Source="house.png"/>
+                                    Source="house.png"/>-->
                             </ScrollView>
                         </Grid>
                     </SwipeView.Content>
