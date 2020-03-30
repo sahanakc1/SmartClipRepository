@@ -15,7 +15,8 @@ namespace SmartClips.Views
     {
         private PageService page;
         public ShopsPage()
-        {try
+        {
+            try
             {
                 InitializeComponent();
                 page = new PageService();

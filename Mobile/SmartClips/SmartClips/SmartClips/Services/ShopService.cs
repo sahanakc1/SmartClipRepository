@@ -41,7 +41,6 @@ namespace SmartClips.Services
         }
         public IEnumerable<SaloonUserModel>  getAllSaloons()
         {
-           // List<SaloonUserModel> saloonUserModels = new List<SaloonUserModel>();
             using (var client = new HttpClient())
             { 
                 client.BaseAddress = new Uri("http://10.0.0.86:92/api/login/");
